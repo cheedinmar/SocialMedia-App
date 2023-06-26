@@ -1,7 +1,10 @@
 <template>
     <div>
-        Home
+        <MainSection title="Home" :loading="loading">
+        This is our homepgage
+        </MainSection>
     </div>
 </template>
 <script setup>
+const loading = ref(false)
 </script>

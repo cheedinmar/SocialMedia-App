@@ -13,6 +13,7 @@
     "@nuxtjs/tailwindcss": "^6.8.0",
     "@types/node": "^18",
     "nuxt": "^3.6.0",
+    "prisma": "^4.16.1",
     "typescript": "latest"
   },
   "dependencies": {
