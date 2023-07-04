@@ -17,6 +17,8 @@
     "typescript": "latest"
   },
   "dependencies": {
-    "@heroicons/vue": "^2.0.18"
+    "@heroicons/vue": "^2.0.18",
+    "@prisma/client": "^4.16.1",
+    "bcrypt": "^5.1.0"
   }
 }
