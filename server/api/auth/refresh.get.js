@@ -4,6 +4,7 @@ import { decodeRefreshToken, generateTokens } from "../../utils/jwt";
 import { getUserById } from "../../db/users";
 export default defineEventHandler(async (event) => {
     const refreshToken = getCookie(event, "refresh_token");
+    
     if(!refreshToken){
         return sendError(event, createError({
             statusCode:401,
@@ -11,6 +12,7 @@ export default defineEventHandler(async (event) => {
         }))
     }
     const rToken =  getRefreshTokenbyToken(refreshToken);
+    
      if (!rToken) {
        return sendError(
          event,
@@ -21,10 +23,10 @@ export default defineEventHandler(async (event) => {
        );
      }
      const token = decodeRefreshToken(refreshToken)
+    //  console.log(token, "token");
      try{
         const user = await getUserById(token.userId)
         const {accessToken} = generateTokens(user)
-        console.log(accessToken)
         return {access_token :accessToken}
       
      }catch(err){
