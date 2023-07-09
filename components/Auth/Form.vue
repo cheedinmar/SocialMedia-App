@@ -21,7 +21,6 @@
 <script setup>
 // const { twitterBorderColor } = useTailwindConfig();
 const { login } = useAuth();
-console.log(login, login);
 const data = reactive({
   password: "",
   username: "",
