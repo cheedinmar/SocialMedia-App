@@ -1,14 +1,12 @@
 <template>
   <div :class="{ dark: darkMode }">
     <div class="bg-white dark:bg-dim-900">
-      <LoadingPage v-if="isAuthLoading"/>
-        
-     
+      <LoadingPage v-if="isAuthLoading" />
+
+
       <!--app-->
       <div class="min-h-full" v-else-if="user">
-        <div
-          class="grid grid-cols-12 mx-auto sm:px-6 lg-max-w-7xl lg:px-8 lg:gap-5"
-        >
+        <div class="grid grid-cols-12 mx-auto sm:px-6 lg-max-w-7xl lg:px-8 lg:gap-5">
           <!--Left Side bar-->
           <div class="md:block hidden xs-col-span-1 xl:col-span-2">
             <div class="sticky top-0">
@@ -38,7 +36,7 @@ const { useAuthUser, initAuth, useAuthLoading } = useAuth();
 const isAuthLoading = useAuthLoading()
 // console.log(useAuthUser);
 const user = useAuthUser()
-onBeforeMount(()=>{
+onBeforeMount(() => {
   initAuth()
 })
 </script>

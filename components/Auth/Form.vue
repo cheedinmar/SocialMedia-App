@@ -13,7 +13,7 @@
         v-model="data.password"
       />
       <div>
-        <button @click="handleLogin">Login</button>
+        <button @click="handleLogin">Login</button> 
       </div>
     </div>
   </div>
@@ -21,6 +21,7 @@
 <script setup>
 // const { twitterBorderColor } = useTailwindConfig();
 const { login } = useAuth();
+console.log();
 const data = reactive({
   password: "",
   username: "",
