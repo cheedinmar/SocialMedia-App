@@ -26,7 +26,8 @@ const user = useAuthUser()
 onBeforeMount(async()=>{
     loading.value = true
     try{
-        await getHomeTweet()
+       const {tweets} =  await getHomeTweet()
+       homeTweets.value = tweets
     }catch(error){
         console.log(error)
     }finally{

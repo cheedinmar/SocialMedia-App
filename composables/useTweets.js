@@ -14,10 +14,10 @@ export default ()=>{
         return new Promise (async(resolve, reject) =>{
             try{
                 const response = await useFetchApi('/api/tweets', {
-                    method:'GET'
+                    method:'GET' 
                 })
                 console.log(response)
-                resolve(true)
+                resolve(response);
             }catch(error){
                 reject(error)
             }

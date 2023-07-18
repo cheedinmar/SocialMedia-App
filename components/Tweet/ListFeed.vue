@@ -1,18 +1,20 @@
 <template>
     <div>
-        <h1>
-            List feed
-        </h1>
-        <ul>
-            <li v-for="tweet in props.tweets">{{ tweet }}</li>
-        </ul>
+        <div v-if="isEmptyArray" class="p-4">
+            <p class="text-center text-gray-500">No tweets ☹️</p>
+        </div>
+        <div v-else class="pb-4  border-b cursor-pointer dark:hover:bg-dim-300  hover:bg-gray-100" :key="tweet.id" v-for="tweet in props.tweets" :class="[twitterBorderColor, defaultTransition]">
+            <TweetItem  :tweet="tweet"  />
+        </div>
     </div>
 </template>
 <script setup>
+const { twitterBorderColor, defaultTransition } = useTailwindConfig()
 const props = defineProps({
-    tweets:{
+    tweets: {
         type: Array,
-        required:true
+        required: true
     }
 })
+const isEmptyArray = computed(()=> props.tweets.length ===0)
 </script>

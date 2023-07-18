@@ -5,7 +5,7 @@ export const tweetTransformer = (tweet) => {
   return {
     id: tweet.id,
     text: tweet.text,
-    mediaiFiles: tweet.mediaFiles
+    mediaFiles: tweet.mediaFiles
       ? tweet.mediaFiles.map(mediaFileTransformer)
       : [],
     author: tweet.author ? userTransformer(tweet.author) : null,
