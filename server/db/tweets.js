@@ -9,3 +9,14 @@ export const getTweets = (params) => {
     ...params,
   });
 };
+
+export const getTweetById = (tweetId, params= {}) => {
+  return prisma.tweet.findUnique({
+     ...params,
+    where: {
+      ...params.where,
+      id: tweetId,
+    },
+   
+  });
+};
