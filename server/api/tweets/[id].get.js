@@ -13,6 +13,7 @@ export default defineEventHandler(async (event) => {
      },
      replies: {
        include: {
+        mediaFiles:true,
          author: true,
          replyTo: {
            include: {
@@ -24,6 +25,6 @@ export default defineEventHandler(async (event) => {
    },
  });
   return {
-    hi: tweetTransformer(tweet),
+    tweet: tweetTransformer(tweet),
   };
 });

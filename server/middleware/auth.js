@@ -4,7 +4,7 @@ import { sendError } from "h3";
 import { getUserById } from "../db/users";
 
 export default defineEventHandler(async (event) => {
-  const endpoints = ["/api/auth/user", "/api/user/tweets", '/api/tweets'];
+  const endpoints = ["/api/auth/user", "/api/user/tweets", '/api/tweets', '/api/tweets/:id'];
 
   const isHandledByThisMiddleware = endpoints.some((endopoint) => {
     const pattern = new UrlPattern(endopoint);
@@ -34,7 +34,7 @@ export default defineEventHandler(async (event) => {
     const userId = decoded.userId;
 
     const user = await getUserById(userId);
-
+    //any api we are adding to this arrayBuffer, we are sending a user to the event context
     event.context.auth = { user };
   } catch (error) {
     return;
