@@ -107,7 +107,7 @@ const props = defineProps({
         required: true
     },
     placeholder: {
-        type: Object,
+        type: String,
         required: true
     }
 })

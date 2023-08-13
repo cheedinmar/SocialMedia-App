@@ -3,7 +3,7 @@
         <div v-if="isEmptyArray" class="p-4">
             <p class="text-center text-gray-500">No tweets ☹️</p>
         </div>
-        <div v-else class="pb-4  border-b cursor-pointer dark:hover:bg-dim-300  hover:bg-gray-100" :key="tweet.id" v-for="tweet in props.tweets" :class="[twitterBorderColor, defaultTransition]" @click.native="redirect(tweet)">
+        <div v-else class="pb-4  border-b cursor-pointer dark:hover:bg-dim-300  hover:bg-gray-100" :key="tweet.id" v-for="tweet in props.tweets" :class="[twitterBorderColor, defaultTransition]" @click="redirect(tweet)">
             <TweetItem  :tweet="tweet" compact />
         </div>
     </div>
