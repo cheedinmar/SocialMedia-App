@@ -26,6 +26,8 @@ function handleFormSuccess(tweet) {
     navigateTo({
         path: `/status/${tweet.id}`
     })
+    window.location.href = `/status/${tweet.id}`
+    //window.location.reload()
 }
 
 </script>

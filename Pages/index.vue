@@ -14,7 +14,7 @@
 </template>
 <script setup>
 const { twitterBorderColor} = useTailwindConfig()
-const {getHomeTweet} = useTweets()
+const {getHomeTweet} = useTweets();
 const homeTweets = ref([
     {
         2:2
@@ -23,8 +23,12 @@ const homeTweets = ref([
 const loading = ref(false)
 const {useAuthUser} = useAuth();
 const user = useAuthUser()
-function handleFormSuccess (tweet){
-    navigateTo(`/status/${tweet.id}`)
+function handleFormSuccess(tweet) {
+    navigateTo({
+        path: `/status/${tweet.id}`
+    })
+    window.location.href = `/status/${tweet.id}`
+    //window.location.reload()
 }
 onBeforeMount(async()=>{
     loading.value = true
@@ -32,7 +36,6 @@ onBeforeMount(async()=>{
        const {tweets} =  await getHomeTweet()
        homeTweets.value = tweets
     }catch(error){
-        console.log(error)
     }finally{
         loading.value = false
     }

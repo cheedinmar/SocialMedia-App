@@ -13,7 +13,6 @@
 const emits = defineEmits(['onSuccess'])
 const loading = ref(false)
 const { postTweet } = useTweets();
-console.log(useTweets);
 const props = defineProps({
     user: {
         type: Object,
@@ -37,6 +36,7 @@ async function handleFormSubmit(data) {
         replyTo: props.replyTo?.id
       })
       emits('onSuccess', response.userId)
+      window.location.reload()
     }catch(err){
         throw(err)
     }finally{

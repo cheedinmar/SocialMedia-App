@@ -1,4 +1,13 @@
 export default ()=>{
+    const usePostTweetModal =()=> useState('post_tweet_modal', ()=> false)
+    const closePostTweetModal = ()=>{
+        const postTweetModal = usePostTweetModal()
+        postTweetModal.value =  false
+    }
+     const openPostTweetModal = () => {
+       const postTweetModal = usePostTweetModal();
+       postTweetModal.value = true;
+     };
     const postTweet = (formData)=>{
         const form = new FormData()
         form.append('text', formData.text)
@@ -38,5 +47,8 @@ export default ()=>{
       postTweet,
       getHomeTweet,
       getTweetById,
+      closePostTweetModal,
+      usePostTweetModal,
+      openPostTweetModal, 
     };
 }
