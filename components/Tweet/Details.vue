@@ -23,11 +23,11 @@ const props = defineProps({
 const replies = computed(() => props.tweet?.replies || [])
 
 function handleFormSuccess(tweet) {
+    console.log(tweet, 'tweet')
     navigateTo({
         path: `/status/${tweet.id}`
     })
     window.location.href = `/status/${tweet.id}`
-    //window.location.reload()
 }
 
 </script>
