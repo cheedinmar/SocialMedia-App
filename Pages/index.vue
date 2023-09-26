@@ -14,7 +14,7 @@
 </template>
 <script setup>
 const { twitterBorderColor} = useTailwindConfig()
-const {getHomeTweet} = useTweets();
+const {getTweet} = useTweets();
 const homeTweets = ref([
     {
         2:2
@@ -33,7 +33,7 @@ function handleFormSuccess(tweet) {
 onBeforeMount(async()=>{
     loading.value = true
     try{
-       const {tweets} =  await getHomeTweet()
+       const {tweets} =  await getTweet()
        homeTweets.value = tweets
     }catch(error){
     }finally{

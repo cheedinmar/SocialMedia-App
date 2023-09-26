@@ -13,7 +13,7 @@
 <script setup>
 const emits = defineEmits(['onSuccess'])
 const loading = ref(false)
-const { postTweet } = useTweets();
+const { postTweet } = useTweets()
 const props = defineProps({
     user: {
         type: Object,
