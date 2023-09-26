@@ -38,6 +38,7 @@ export const generateTokens = (user)=>{
 }
 
 export const sendRefreshToken = (event, token) =>{
+  console.log(event, 'event in utils')
     setCookie(event, "refresh_token", token, {
       httpOnly:true,
       sameSite:true

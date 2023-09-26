@@ -86,6 +86,7 @@ function handleOpenTweetModal() {
 }
 
 function handleUserLogout() {
+  
   logout()
 }
 

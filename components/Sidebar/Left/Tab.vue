@@ -1,7 +1,7 @@
 <template>
   <nuxt-link
     to="#"
-    class="flex items-center text-black p-3 w-min hover:bg-gray-200 dark:hover:bg-dim-200 dark:text-white rounded-full"
+    class="flex items-center text-black px-3 py-2 w-min hover:bg-gray-200 dark:hover:bg-dim-200 dark:text-white rounded-full"
     :class="defaultTransition"
   >
     <div class="w-6 h-6 text-dark"><slot name="icon"></slot></div>
