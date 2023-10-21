@@ -3,19 +3,19 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "./node_modules/.prisma/client"
+  //output   = "./node_modules/.prisma/client"
   //  previewFeatures = ["referentialStringegrity"]
 }
 
-// datasource db {
-//   provider = "postgresql"
-//   url      = env("DATABASE_URL")
-//   // relationMode ="primsa"
-// }
 datasource db {
-  provider = "sqlite"
-  url      = "file:./db.sqlite"
+  provider     = "mysql"
+  url      = env("DATABASE_URL")
+   relationMode ="prisma"
 }
+// datasource db {
+//   provider = "sqlite"
+//   url      = "file:./db.sqlite"
+// }
 
 model User {
   id           String             @id @default(uuid()) @map("_id")
