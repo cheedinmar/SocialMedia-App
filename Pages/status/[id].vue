@@ -34,7 +34,6 @@ async function getTweet() {
         const response = await getTweetById(getTweetIdFromRoute())
         tweet.value = response.tweet
     } catch (error) {
-        console.log(error, 'error');
     } finally {
         loading.value = false
     }

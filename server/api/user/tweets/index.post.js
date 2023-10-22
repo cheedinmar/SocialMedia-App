@@ -15,7 +15,6 @@ export default defineEventHandler(async (event) =>{
   });
   const { fields, files } = response;
   const userId = event.context?.auth?.user?.id;
-  console.log(response, "responseresponseresponse", userId);
   const tweetData = {
     text: fields.text[0],
     authorId: userId,
@@ -29,7 +28,6 @@ export default defineEventHandler(async (event) =>{
   const filePromises = Object.keys(files).map(async (key) => {
     const file = files[key]
     const cloudinaryResource = await uploadToCloudinary(file[0].filepath);
-    console.log(cloudinaryResource)
     return createMediaFile({
       url: cloudinaryResource.secure_url,
       providerPublicId: cloudinaryResource.public_id,

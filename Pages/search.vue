@@ -29,7 +29,6 @@ onBeforeMount(() => {
 })
 
 async function getTweets() {
-    console.log('this function')
     loading.value = true
     const searchQuery = useRoute().fullPath.match(/q=([^&]+)/)[1]
     try {
@@ -40,7 +39,6 @@ async function getTweets() {
 
         searchTweets.value = tweets
     } catch (error) {
-        console.log(error)
     } finally {
         loading.value = false
     }

@@ -38,11 +38,9 @@ export default () => {
     return new Promise(async (resolve, reject) => {
       try {
         const data = await $fetch("/api/auth/refresh");
-        console.log(data);
         setToken(data.access_token);
         resolve(true);
       } catch (err) {
-        console.log(err);
         reject(err);
       }
     });
@@ -64,7 +62,6 @@ export default () => {
         return
     }
     const jwt = jwt_decode(authToken.value)
-    console.log(jwt, 'jwt');
     const newRefreshTime = jwt.exp - 60000
     setTimeout(async() => {
        await refreshToken()

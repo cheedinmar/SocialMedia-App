@@ -16,7 +16,7 @@ export const decodeRefreshToken = (token) =>{
   try{
     return jwt.verify(token, config.jwtRefreshSecret)
   }catch(err){
-    console.log(err);
+    throw(err);
   }
 }
 export const decodeAccessToken = (token) => {
@@ -24,7 +24,7 @@ export const decodeAccessToken = (token) => {
   try {
     return jwt.verify(token, config.jwtAccessSecret);
   } catch (err) {
-    console.log(err, 'error')
+    throw(err)
   }
 };
 export const generateTokens = (user)=>{
@@ -38,7 +38,6 @@ export const generateTokens = (user)=>{
 }
 
 export const sendRefreshToken = (event, token) =>{
-  console.log(event, 'event in utils')
     setCookie(event, "refresh_token", token, {
       httpOnly:true,
       sameSite:true

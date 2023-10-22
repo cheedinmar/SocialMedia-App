@@ -17,7 +17,6 @@ export default defineEventHandler(async (event) => {
   }
 
   const token = event.req.headers["authorization"]?.split(" ")[1];
-  console.log(token, 'to find user');
   const decoded = decodeAccessToken(token);
   
   if (!decoded) {

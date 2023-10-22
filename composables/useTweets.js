@@ -33,7 +33,6 @@ export default ()=>{
                     method:'GET' ,
                     params
                 })
-                console.log(response)
                 resolve(response);
             }catch(error){
                 reject(error)

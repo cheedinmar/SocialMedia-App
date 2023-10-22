@@ -23,7 +23,6 @@ const props = defineProps({
 const replies = computed(() => props.tweet?.replies || [])
 
 function handleFormSuccess(tweet) {
-    console.log(tweet, 'tweet')
     navigateTo({
         path: `/status/${tweet.id}`
     })
