@@ -8,9 +8,9 @@ generator client {
 }
 
 datasource db {
-  provider     = "mysql"
+  provider     = "postgres"
   url      = env("DATABASE_URL")
-   relationMode ="prisma"
+   //relationMode ="prisma"
 }
 // datasource db {
 //   provider = "sqlite"
@@ -30,6 +30,7 @@ model User {
   //Tweet
   Tweet        Tweet[]
   mediaFiles   MediaFile[]
+   @@index([username], name: "unique_username")
 }
 
 model RefreshToken {
@@ -39,6 +40,7 @@ model RefreshToken {
   updatedAt DateTime @updatedAt
   user      User     @relation(fields: [userId], references: [id])
   userId    String
+   @@index([userId], name: "user_id_index")
 }
 
 model Tweet {
@@ -55,6 +57,8 @@ model Tweet {
 
   //media files
   mediaFiles MediaFile[]
+  @@index([authorId]) // Add an index for the authorId field
+   @@index([replyToId])
 }
 
 model MediaFile {
@@ -68,4 +72,6 @@ model MediaFile {
   //Tweet
   tweetId          String?
   tweet            Tweet?   @relation(fields: [tweetId], references: [id])
+   @@index([userId]) // Add an index for the userId field
+  @@index([tweetId]) // Add an index for the tweetId field
 }
